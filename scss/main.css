@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 50%;
+}
+
+/*
+$bg-color: #ff7675;
+//mixin code
+@mixin flex-prop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+//we simply now to include this mixin name to where you want.
+
+@mixin h1_p_code($ls, $tt) {   //we writing this mixin with paramters
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+    letter-spacing: $ls;
+    //if you write new property here it will be added to h1 and p too
+    text-transform: $tt;
+}
+*/
+.main-header {
+  width: 100vw;
+  height: 100vh;
+  /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ff7675;
+  /*
+    h1:hover{
+        color: white;
+    }
+    h1:after{
+        text-transform: Narkhede;
+    }
+    p:hover{     //hover is pseudo class
+        color: white;
+    }
+    */
+}
+
+.main-header h1 {
+  color: #dfe6e9;
+  font-size: 10rem;
+  letter-spacing: 1.5;
+  text-transform: uppercase;
+}
+
+.main-header h1:hover {
+  color: white;
+}
+
+.main-header h1::after {
+  content: " Narkhede";
+}
+
+.main-header p {
+  color: #dfe6e9;
+  font-size: 10rem;
+  letter-spacing: 0.3;
+  text-transform: capitalize;
+}
+
+.main-header p:hover {
+  color: white;
+}
+
+/*
+h1{
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+    //+ operator
+    //you can 15rem - 5rem instead
+}
+
+p{
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+/*# sourceMappingURL=main.css.map */

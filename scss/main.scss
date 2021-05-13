@@ -1,0 +1,118 @@
+//import partial files i.e. mixin and variables which we have created seperate files
+@import "mixin";
+@import "var";
+
+
+// sass is called when css
+// now we have CSS3 so scss
+//sass is css preprocessor, we can say css with superpowers.
+//sass resolves the compatiblity issues i.e. different browsers have different code or prefix to be written on css to make it more compatible to run in broswer.
+
+//you need to make main.scss, it will make main.css automatically.
+//you need to download, sass live compiler, which is now already downloaded.
+//down at status bar you will see button "Watch Sass", click on it only once and it will automatically convert you new code
+//no need to click it again, if you written new code.
+//you need to add main.css link to index.html
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    //setting 1 rem size to 62.5% pixel
+    font-size: 50%;
+}
+// sass features ie. superpowers
+// 1. operators
+// 2. variables
+// 3. nesting
+// 4. mixin and imclude
+// 5. sass partials   --- seperate mixin codes, seperate different sections of css.
+
+/*
+$bg-color: #ff7675;
+//mixin code
+@mixin flex-prop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+//we simply now to include this mixin name to where you want.
+
+@mixin h1_p_code($ls, $tt) {   //we writing this mixin with paramters
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+    letter-spacing: $ls;
+    //if you write new property here it will be added to h1 and p too
+    text-transform: $tt;
+}
+*/
+//above mixin was here but as 5th feature sass partial allows use to seperate sections we will make seperate file for above mixins and variables.
+//these parts we have to import to this files, and that file should be have file letter _ while saving
+.main-header{
+    width: 100vw;  //viewport width
+    height: 100vh;  // viewport height
+    //below code we taken for mixin, we assume that below four line of code, we have to repeat them many times so go to mixin above.
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    */
+    @include flex-prop;
+   // place-items: center;  grid property when display = grid
+    background: $bg-color;
+    // using variable
+
+    h1{                                      // go to last you will see what h1 and p had, same line of code so added mixin with variable.
+        @include h1_p_code(1.5, uppercase);
+        //+ operator
+        //you can 15rem - 5rem instead
+        //here we dont have to write h1:hover because we are in h1 nesting, so you have to use &
+        &:hover{
+            color: white;
+        }
+        &::after{
+            content: " Narkhede";
+        }
+    }
+    
+    p{
+        @include h1_p_code(0.3, capitalize);
+
+        &:hover{     //hover is pseudo class
+            color: white;
+        }
+    }
+    //nesting
+    // you can them hover also here only
+    // now the below hover code is part of h1 so you can paste it within it
+    /*
+    h1:hover{
+        color: white;
+    }
+    h1:after{
+        text-transform: Narkhede;
+    }
+    p:hover{     //hover is pseudo class
+        color: white;
+    }
+    */
+}
+/*
+h1{
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+    //+ operator
+    //you can 15rem - 5rem instead
+}
+
+p{
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+}
+*/
+//now this h1 and p, are outside i.e. it is applicable to all the h1 and p.
+//but I hae written same inside the .main-header's curly braces so that is nesting, it will only applicable to h1 and p who is in that class.

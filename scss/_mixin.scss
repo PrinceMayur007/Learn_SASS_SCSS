@@ -1,0 +1,15 @@
+@mixin flex-prop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+//we simply now to include this mixin name to where you want.
+
+@mixin h1_p_code($ls, $tt) {   //we writing this mixin with paramters
+    color: #dfe6e9;
+    font-size: 5rem + 5rem;
+    letter-spacing: $ls;
+    //if you write new property here it will be added to h1 and p too
+    text-transform: $tt;
+}
